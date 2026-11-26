@@ -4,9 +4,40 @@ Use `rtiai` to inspect and troubleshoot DDS systems with Run-Time Expert (RTE), 
 
 ## Download the CLI
 
-The first CLI release is pending. Once it is available, download the archive for your operating system and processor, along with `checksums.txt`, from [Releases](https://github.com/realtimeinnovations/rtiai-cli-feedback/releases).
+The standalone CLI runs on macOS and Linux (Intel/AMD 64-bit and ARM64) and Windows x64.
 
-Verify the archive’s SHA-256 checksum against its entry in `checksums.txt`, extract `rtiai` (`rtiai.exe` on Windows), and place it in a directory on your `PATH`. Run `rtiai --version` to check the installation.
+### macOS and Linux
+
+Run the shell installer in a terminal.
+
+```sh
+curl -fsSL https://github.com/realtimeinnovations/rtiai-cli-feedback/releases/latest/download/install.sh | sh
+```
+
+The installer verifies the archive’s SHA-256 checksum and installs to `/usr/local/bin` by default. For a per-user installation, pipe the download to `env INSTALL_DIR="$HOME/.local/bin" sh` and add that directory to your `PATH`.
+
+### Windows
+
+Run the installer in PowerShell, then open a new terminal so it picks up your updated `PATH`.
+
+```powershell
+irm https://github.com/realtimeinnovations/rtiai-cli-feedback/releases/latest/download/install.ps1 | iex
+```
+
+### Homebrew
+
+If RTI’s tap lists `rtiai`, run the following commands on macOS or Linux. If the formula is unavailable, use the shell installer above. [Browse RTI’s Homebrew formulas](https://github.com/realtimeinnovations/homebrew-tap/tree/main/Formula)
+
+```sh
+brew tap realtimeinnovations/tap
+brew install rtiai
+```
+
+### Manual installation
+
+Download the archive for your operating system and processor, along with `checksums.txt`, from [Releases](https://github.com/realtimeinnovations/rtiai-cli-feedback/releases). Verify the archive’s SHA-256 checksum against its entry, extract `rtiai` (`rtiai.exe` on Windows), and place it in a directory on your `PATH`.
+
+Run `rtiai --version` to verify the installation. To check for updates, run `rtiai update --check`. Upgrade a standalone macOS or Linux installation with `rtiai update`. For Homebrew, run `brew upgrade rtiai`. On Windows, rerun the PowerShell installer.
 
 ## Get started
 
